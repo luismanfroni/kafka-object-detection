@@ -14,7 +14,7 @@ const start = (kafkaConfig) => {
                 objectDetection.handleImage(
                     {
                         "id": tweet.id,
-                        "url": media.media_url,
+                        "url": tweet.media_url,
                         "text": tweet.text
                     }
                 );
