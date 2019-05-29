@@ -6,9 +6,7 @@ var handler = (objects, tweet) => {};
 exports.handler = handler;
 
 const handleImage = (tweetObject) => {
-    console.log(tweetObject);
     client.objectLocalization(tweetObject.url).then(result => {
-        console.log(result);
         let [response] = result;
         
         if(response == null) return;

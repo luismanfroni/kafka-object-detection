@@ -9,16 +9,16 @@ const start = (kafkaConfig) => {
     kafkaConsumer.handler = (message) => {
         try {
             let tweet = JSON.parse(message.value);
-            if(typeof(tweet.entities.media) != "undefined" && 
-                typeof(tweet.entities.media.media_url) != "undefined")
+            
+            if(typeof(tweet.media_url) != "undefined") {
                 objectDetection.handleImage(
                     {
                         "id": tweet.id,
-                        "url": tweet.entities.media.media_url,
+                        "url": media.media_url,
                         "text": tweet.text
                     }
                 );
-
+            }
         } catch {
 
         }
